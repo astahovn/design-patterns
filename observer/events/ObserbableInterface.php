@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Interface Observable
+ * Интерфейс наблюдаемого
+ */
 interface Observable {
 
   /**
@@ -15,4 +19,12 @@ interface Observable {
    * @param String[] $events
    */
   public function detach(Observer $observer, $events);
+
+  /**
+   * Отправка сообщений наблюдателям
+   * @param String $event
+   * @param Array $data
+   */
+  public function notify($event, $data);
+
 }
