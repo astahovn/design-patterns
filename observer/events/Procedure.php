@@ -4,7 +4,7 @@
  * Class Procedure
  * Класс закупки реализующей интерфейс наблюдаемого объекта
  */
-class Procedure implements Observable {
+class Procedure extends Observable {
 
   const EVENT_PUBLICATION               = 1;  // публикация закупки
   const EVENT_REGISTRATION_OVER         = 2;  // окончание приема заявок
@@ -15,56 +15,35 @@ class Procedure implements Observable {
   const EVENT_CONTRACT_START            = 7;  // начало этапа заключения договора
   const EVENT_ARCHIVE                   = 8;  // переход в архив
 
-  protected $events = array();
+  /** @var string $name Название закупки */
+  protected $name = '';
 
-  /**
-   * Добавление наблюдателя для событий
-   * @param Observer $observer
-   * @param String[] $events
-   */
-  public function attach(Observer $observer, $events)
+  public function saveDraft($name)
   {
-    foreach($events as $event) {
-      if (!array_key_exists($event, $this->events)) {
-        $this->events[$event] = array();
-      }
-      $this->events[$event][] = $observer;
-    }
+    $this->name = $name;
   }
 
   /**
-   * Удаление наблюдателя для событий
-   * @param Observer $observer
-   * @param String[] $events
+   * Получение общих для всех ивентов данных
+   * @return array
    */
-  public function detach(Observer $observer, $events)
+  protected function getCommonEventData()
   {
-    foreach($events as $event) {
-      if (array_key_exists($event, $this->events)) {
-        $newObservers = array();
-        foreach($this->events[$event] as $obs) {
-          if ($obs != $observer) {
-            $newObservers[] = $obs;
-          }
-        }
-        $this->events[$event] = $newObservers;
-      }
-    }
+    return array(
+      'name' => $this->name
+    );
   }
 
-  /**
-   * Отправка сообщений наблюдателям
-   * @param String $event
-   * @param Array $data
-   */
-  public function notify($event, $data)
+  public function publicate()
   {
-    if (array_key_exists($event, $this->events)) {
-      /** @var Observer $observer */
-      foreach($this->events[$event] as $observer) {
-        $observer->eventsListener($event, $data);
-      }
-    }
+    var_dump($this->name . ' - publicated');
+    $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
+  }
+
+  public function registrationOver()
+  {
+    var_dump($this->name . ' - registration is over');
+    $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
   }
 
 }
