@@ -34,15 +34,23 @@ class Procedure extends Observable {
     );
   }
 
+  /**
+   * Публикация закупки
+   */
   public function publicate()
   {
     var_dump($this->name . ' - publicated');
+
     $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
   }
 
+  /**
+   * Окончание приема заявок на участие в закупке
+   */
   public function registrationOver()
   {
     var_dump($this->name . ' - registration is over');
+
     $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
   }
 

@@ -8,8 +8,8 @@ interface Observer {
 
   /**
    * Обработчик события
-   * @param String $event
-   * @param Array $data
+   * @param string $event
+   * @param array $data
    */
   public function eventsListener($event, $data);
 
