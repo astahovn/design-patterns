@@ -1,5 +1,9 @@
 <?php
 
+Namespace Procedure;
+
+use Observer\Observable;
+
 /**
  * Class Procedure
  * Класс закупки реализующей интерфейс наблюдаемого объекта
@@ -29,9 +33,9 @@ class Procedure extends Observable {
    */
   protected function getCommonEventData()
   {
-    return array(
+    return [
       'name' => $this->name
-    );
+    ];
   }
 
   /**

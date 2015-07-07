@@ -1,5 +1,7 @@
 <?php
 
+Namespace Observer;
+
 /**
  * Class Observable
  * Реализация логики Наблюдаемого

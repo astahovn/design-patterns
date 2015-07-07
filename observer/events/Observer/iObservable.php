@@ -1,5 +1,7 @@
 <?php
 
+Namespace Observer;
+
 /**
  * Interface Observable
  * Интерфейс наблюдаемого
