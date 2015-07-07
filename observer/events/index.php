@@ -9,5 +9,7 @@ use Procedure\Procedure;
 
 $procedure = new Procedure();
 $procedure->saveDraft('Test 1');
-$procedure->publicate();
+$procedure->publish();
 $procedure->registrationOver();
+$procedure->publishProtocol();
+$procedure->archive();
