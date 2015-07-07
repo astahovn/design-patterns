@@ -15,6 +15,31 @@ class Procedure extends Observable {
   const EVENT_PROTOCOL_PUBLISHED        = 3;  // публикация протокола рассмотрения заявок
   const EVENT_ARCHIVE                   = 4;  // переход в архив
 
+  /**
+   * Получение текста события
+   * @param int $event
+   * @return string
+   */
+  public static function getEventText($event)
+  {
+    $text = '';
+    switch($event) {
+      case self::EVENT_PUBLICATION:
+        $text = 'публикация закупки';
+        break;
+      case self::EVENT_REGISTRATION_OVER:
+        $text = 'окончание приема заявок';
+        break;
+      case self::EVENT_PROTOCOL_PUBLISHED:
+        $text = 'публикация протокола рассмотрения заявок';
+        break;
+      case self::EVENT_ARCHIVE:
+        $text = 'переход в архив';
+        break;
+    }
+    return $text;
+  }
+
   /** @var string $name Название закупки */
   protected $name = '';
 

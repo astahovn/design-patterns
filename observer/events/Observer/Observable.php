@@ -12,10 +12,10 @@ class Observable implements iObservable {
 
   /**
    * Добавление наблюдателя для событий
-   * @param Observer $observer
+   * @param iObserver $observer
    * @param array $events
    */
-  public function attach(Observer $observer, $events)
+  public function attach(iObserver $observer, $events)
   {
     foreach($events as $event) {
       if (!array_key_exists($event, $this->events)) {
@@ -27,10 +27,10 @@ class Observable implements iObservable {
 
   /**
    * Удаление наблюдателя для событий
-   * @param Observer $observer
+   * @param iObserver $observer
    * @param array $events
    */
-  public function detach(Observer $observer, $events)
+  public function detach(iObserver $observer, $events)
   {
     foreach($events as $event) {
       if (array_key_exists($event, $this->events)) {

@@ -10,17 +10,17 @@ interface iObservable {
 
   /**
    * Добавление наблюдателя для событий
-   * @param Observer $observer
+   * @param iObserver $observer
    * @param array $events
    */
-  public function attach(Observer $observer, $events);
+  public function attach(iObserver $observer, $events);
 
   /**
    * Удаление наблюдателя для событий
-   * @param Observer $observer
+   * @param iObserver $observer
    * @param array $events
    */
-  public function detach(Observer $observer, $events);
+  public function detach(iObserver $observer, $events);
 
   /**
    * Отправка сообщений наблюдателям
