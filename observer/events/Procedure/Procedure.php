@@ -12,12 +12,8 @@ class Procedure extends Observable {
 
   const EVENT_PUBLICATION               = 1;  // публикация закупки
   const EVENT_REGISTRATION_OVER         = 2;  // окончание приема заявок
-  const EVENT_APPLIC_OPEN_START         = 3;  // начало вскрытия конвертов
-  const EVENT_PROTOCOL_APPLIC_OPENED    = 4;  // публикация протокола вскрытия конвертов
-  const EVENT_PROTOCOL_APPLIC_REVIEW    = 5;  // публикация протокола рассмотрения заявок
-  const EVENT_PROTOCOL_SUMMING_UP       = 6;  // публикация протокола подведения итогов
-  const EVENT_CONTRACT_START            = 7;  // начало этапа заключения договора
-  const EVENT_ARCHIVE                   = 8;  // переход в архив
+  const EVENT_PROTOCOL_PUBLISHED        = 3;  // публикация протокола рассмотрения заявок
+  const EVENT_ARCHIVE                   = 4;  // переход в архив
 
   /** @var string $name Название закупки */
   protected $name = '';
@@ -41,9 +37,9 @@ class Procedure extends Observable {
   /**
    * Публикация закупки
    */
-  public function publicate()
+  public function publish()
   {
-    var_dump($this->name . ' - publicated');
+    var_dump($this->name . ' - published');
 
     $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
   }
@@ -56,6 +52,26 @@ class Procedure extends Observable {
     var_dump($this->name . ' - registration is over');
 
     $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
+  }
+
+  /**
+   * Публикация протокола рассмотрения заявок
+   */
+  public function publishProtocol()
+  {
+    var_dump($this->name . ' - published protocol');
+
+    $this->notify(self::EVENT_PROTOCOL_PUBLISHED, $this->getCommonEventData());
+  }
+
+  /**
+   * Переход закупки в Архив
+   */
+  public function archive()
+  {
+    var_dump($this->name . ' - archived');
+
+    $this->notify(self::EVENT_ARCHIVE, $this->getCommonEventData());
   }
 
 }
