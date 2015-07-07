@@ -64,7 +64,7 @@ class Procedure extends Observable {
    */
   public function publish()
   {
-    var_dump($this->name . ' - published');
+    print($this->name . " - published\n");
 
     $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
   }
@@ -74,7 +74,7 @@ class Procedure extends Observable {
    */
   public function registrationOver()
   {
-    var_dump($this->name . ' - registration is over');
+    print($this->name . " - registration is over\n");
 
     $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
   }
@@ -84,7 +84,7 @@ class Procedure extends Observable {
    */
   public function publishProtocol()
   {
-    var_dump($this->name . ' - published protocol');
+    print($this->name . " - published protocol\n");
 
     $this->notify(self::EVENT_PROTOCOL_PUBLISHED, $this->getCommonEventData());
   }
@@ -94,7 +94,7 @@ class Procedure extends Observable {
    */
   public function archive()
   {
-    var_dump($this->name . ' - archived');
+    print($this->name . " - archived\n");
 
     $this->notify(self::EVENT_ARCHIVE, $this->getCommonEventData());
   }
