@@ -8,7 +8,7 @@ Namespace Observer;
  */
 class Observable implements iObservable {
 
-  protected $events = array();
+  protected $events = [];
 
   /**
    * Добавление наблюдателя для событий
@@ -19,7 +19,7 @@ class Observable implements iObservable {
   {
     foreach($events as $event) {
       if (!array_key_exists($event, $this->events)) {
-        $this->events[$event] = array();
+        $this->events[$event] = [];
       }
       $this->events[$event][] = $observer;
     }
@@ -34,7 +34,7 @@ class Observable implements iObservable {
   {
     foreach($events as $event) {
       if (array_key_exists($event, $this->events)) {
-        $newObservers = array();
+        $newObservers = [];
         foreach($this->events[$event] as $obs) {
           if ($obs != $observer) {
             $newObservers[] = $obs;
@@ -53,7 +53,7 @@ class Observable implements iObservable {
   public function notify($event, $data)
   {
     if (array_key_exists($event, $this->events)) {
-      /** @var Observer $observer */
+      /** @var iObserver $observer */
       foreach($this->events[$event] as $observer) {
         $observer->eventsListener($event, $data);
       }
