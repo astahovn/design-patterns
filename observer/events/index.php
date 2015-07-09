@@ -22,8 +22,8 @@ $procedure->attach(new NotifierProcedure(), [
   Procedure::EVENT_PROTOCOL_PUBLISHED
 ]);
 
-$procedure->saveDraft('Test 1');
-$procedure->publish();
-$procedure->registrationOver();
-$procedure->publishProtocol();
-$procedure->archive();
+$procedure->saveDraft('Test 1')
+  ->publish()
+  ->registrationOver()
+  ->publishProtocol()
+  ->archive();

@@ -43,9 +43,15 @@ class Procedure extends Observable {
   /** @var string $name Название закупки */
   protected $name = '';
 
+  /**
+   * Сохранение черновика закупки
+   * @param string $name
+   * @return Procedure
+   */
   public function saveDraft($name)
   {
     $this->name = $name;
+    return $this;
   }
 
   /**
@@ -61,42 +67,50 @@ class Procedure extends Observable {
 
   /**
    * Публикация закупки
+   * @return Procedure
    */
   public function publish()
   {
     print($this->name . " - published\n");
 
     $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
+    return $this;
   }
 
   /**
    * Окончание приема заявок на участие в закупке
+   * @return Procedure
    */
   public function registrationOver()
   {
     print($this->name . " - registration is over\n");
 
     $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
+    return $this;
   }
 
   /**
    * Публикация протокола рассмотрения заявок
+   * @return Procedure
    */
   public function publishProtocol()
   {
     print($this->name . " - published protocol\n");
 
     $this->notify(self::EVENT_PROTOCOL_PUBLISHED, $this->getCommonEventData());
+    return $this;
   }
 
   /**
    * Переход закупки в Архив
+   * @return Procedure
    */
   public function archive()
   {
     print($this->name . " - archived\n");
 
     $this->notify(self::EVENT_ARCHIVE, $this->getCommonEventData());
+    return $this;
   }
 
 }
