@@ -6,7 +6,8 @@ Namespace Observer;
  * Class Observable
  * Реализация логики Наблюдаемого
  */
-class Observable implements iObservable {
+class Observable implements iObservable
+{
 
   protected $events = [];
 
@@ -17,7 +18,7 @@ class Observable implements iObservable {
    */
   public function attach(iObserver $observer, $events)
   {
-    foreach($events as $event) {
+    foreach ($events as $event) {
       if (!array_key_exists($event, $this->events)) {
         $this->events[$event] = [];
       }
@@ -32,10 +33,10 @@ class Observable implements iObservable {
    */
   public function detach(iObserver $observer, $events)
   {
-    foreach($events as $event) {
+    foreach ($events as $event) {
       if (array_key_exists($event, $this->events)) {
         $newObservers = [];
-        foreach($this->events[$event] as $obs) {
+        foreach ($this->events[$event] as $obs) {
           if ($obs != $observer) {
             $newObservers[] = $obs;
           }
@@ -54,7 +55,7 @@ class Observable implements iObservable {
   {
     if (array_key_exists($event, $this->events)) {
       /** @var iObserver $observer */
-      foreach($this->events[$event] as $observer) {
+      foreach ($this->events[$event] as $observer) {
         $observer->eventsListener($event, $data);
       }
     }

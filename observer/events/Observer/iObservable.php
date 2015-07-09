@@ -6,7 +6,8 @@ Namespace Observer;
  * Interface Observable
  * Интерфейс наблюдаемого
  */
-interface iObservable {
+interface iObservable
+{
 
   /**
    * Добавление наблюдателя для событий

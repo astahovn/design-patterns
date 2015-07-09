@@ -8,12 +8,13 @@ use Observer\Observable;
  * Class Procedure
  * Класс закупки реализующей интерфейс наблюдаемого объекта
  */
-class Procedure extends Observable {
+class Procedure extends Observable
+{
 
-  const EVENT_PUBLICATION               = 1;  // публикация закупки
-  const EVENT_REGISTRATION_OVER         = 2;  // окончание приема заявок
-  const EVENT_PROTOCOL_PUBLISHED        = 3;  // публикация протокола рассмотрения заявок
-  const EVENT_ARCHIVE                   = 4;  // переход в архив
+  const EVENT_PUBLICATION = 1;  // публикация закупки
+  const EVENT_REGISTRATION_OVER = 2;  // окончание приема заявок
+  const EVENT_PROTOCOL_PUBLISHED = 3;  // публикация протокола рассмотрения заявок
+  const EVENT_ARCHIVE = 4;  // переход в архив
 
   /**
    * Получение текста события
@@ -23,7 +24,7 @@ class Procedure extends Observable {
   public static function getEventText($event)
   {
     $text = '';
-    switch($event) {
+    switch ($event) {
       case self::EVENT_PUBLICATION:
         $text = 'публикация закупки';
         break;

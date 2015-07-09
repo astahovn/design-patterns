@@ -5,7 +5,8 @@ Namespace Logger;
 use Observer\iObserver;
 use Procedure\Procedure as Proc;
 
-class Procedure implements iObserver {
+class Procedure implements iObserver
+{
 
   /**
    * Обработчик события

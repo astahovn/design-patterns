@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__.'/../Observer/iObservable.php';
-require_once __DIR__.'/../Observer/Observable.php';
-require_once __DIR__.'/../Procedure/Procedure.php';
+require_once __DIR__ . '/../Observer/iObservable.php';
+require_once __DIR__ . '/../Observer/Observable.php';
+require_once __DIR__ . '/../Procedure/Procedure.php';
 
 use Procedure\Procedure;
 
