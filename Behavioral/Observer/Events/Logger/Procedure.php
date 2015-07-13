@@ -9,7 +9,7 @@ class Procedure implements iObserver
 {
 
   /**
-   * Обработчик события
+   * Event listener
    * @param string $event
    * @param array $data
    */

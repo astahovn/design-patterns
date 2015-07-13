@@ -1,14 +1,12 @@
 Observer
 ========
 
-Реализация отслеживания событий объекта "Закупка".
+Trading procedure has events:
+*   procedure publication
+*   applications registration is over
+*   applications review protocol publication
+*   procedure archive
 
-У объекта есть события:
-*   публикация
-*   окончание приема заявок
-*   публикация протокола рассмотрения
-*   падение в архив
-
-Используя события реализуем:
-*   уведомление участников закупки при публикации протокола рассмотрения.
-*   лог действий над закупкой
+Using these events we can implement:
+*   notify procedure participants when the application review protocol has published
+*   procedure events logger

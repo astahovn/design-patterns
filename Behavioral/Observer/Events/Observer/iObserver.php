@@ -4,13 +4,12 @@ Namespace Observer;
 
 /**
  * Interface Observer
- * Интерфейс наблюдателя
  */
 interface iObserver
 {
 
   /**
-   * Обработчик события
+   * Events listener
    * @param string $event
    * @param array $data
    */

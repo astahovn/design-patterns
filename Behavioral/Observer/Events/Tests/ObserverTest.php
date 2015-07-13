@@ -12,16 +12,16 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   const PROCEDURE_TEST_NAME = 'Test';
 
   /**
-   * Тест метода attach
+   * Test attach method
    */
   public function testAttach()
   {
-    // Создаем наблюдателя
+    // Generate observer
     $observer = $this->getMockBuilder('Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
-    // Ожидаем, что наблюдатель получит уведомления по двум событиям
+    // Expects that observer gets two events
     $observer->expects($this->exactly(2))
       ->method('eventsListener')
       ->withConsecutive(
@@ -30,7 +30,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
       );
 
     $procedure = new Procedure();
-    // Слушаем только 2 тестируемых события
+    // Listen two needed events
     $procedure->attach($observer, [
       Procedure::EVENT_PUBLICATION,
       Procedure::EVENT_ARCHIVE
@@ -43,28 +43,28 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   }
 
   /**
-   * Тест метода detach
+   * Test detach method
    */
   public function testDetach()
   {
-    // Создаем первого наблюдателя
+    // Generate first observer
     $observer1 = $this->getMockBuilder('Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
-    // Ожидаем, что наблюдатель получит одно уведомление
+    // First observer should get only one event
     $observer1->expects($this->once())
       ->method('eventsListener')
       ->with(
         $this->equalTo(Procedure::EVENT_PROTOCOL_PUBLISHED)
       );
 
-    // Создаем второго наблюдателя
+    // Generate second observer
     $observer2 = $this->getMockBuilder('Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
-    // Ожидаем, что наблюдатель получит одно уведомление
+    // Second observer should get one event
     $observer2->expects($this->once())
       ->method('eventsListener')
       ->with(
@@ -73,7 +73,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
 
     $procedure = new Procedure();
 
-    // Подключаем observer1 ко всем событиям
+    // First observer listens all possible events
     $procedure->attach($observer1, [
       Procedure::EVENT_PUBLICATION,
       Procedure::EVENT_REGISTRATION_OVER,
@@ -81,20 +81,20 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
       Procedure::EVENT_ARCHIVE
     ]);
 
-    // Подключаем observer2 ко выборочным событиям
+    // Second observer listens two randomly events
     $procedure->attach($observer2, [
       Procedure::EVENT_PUBLICATION,
       Procedure::EVENT_ARCHIVE
     ]);
 
-    // Отключаем observer1 от лишних событий
+    // Detach unwanted events from the first observer
     $procedure->detach($observer1, [
       Procedure::EVENT_PUBLICATION,
       Procedure::EVENT_REGISTRATION_OVER,
       Procedure::EVENT_ARCHIVE
     ]);
 
-    // Отключаем observer2 от лишних событий
+    // Detach unwanted event from the second observer
     $procedure->detach($observer2, [
       Procedure::EVENT_PUBLICATION
     ]);
@@ -107,16 +107,16 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   }
 
   /**
-   * Тест метода notify
+   * Test notify method
    */
   public function testNotify()
   {
-    // Создаем наблюдателя
+    // Generate observer
     $observer = $this->getMockBuilder('Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
-    // Ожидаем, что наблюдатель получит уведомления по двум событиям
+    // Expects that observer gets only one event with a certain data
     $observer->expects($this->once())
       ->method('eventsListener')
       ->with(

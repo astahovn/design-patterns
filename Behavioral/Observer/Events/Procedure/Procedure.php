@@ -6,18 +6,17 @@ use Observer\Observable;
 
 /**
  * Class Procedure
- * Класс закупки реализующей интерфейс наблюдаемого объекта
  */
 class Procedure extends Observable
 {
 
-  const EVENT_PUBLICATION = 1;  // публикация закупки
-  const EVENT_REGISTRATION_OVER = 2;  // окончание приема заявок
-  const EVENT_PROTOCOL_PUBLISHED = 3;  // публикация протокола рассмотрения заявок
-  const EVENT_ARCHIVE = 4;  // переход в архив
+  const EVENT_PUBLICATION = 1;  // trading procedure publication
+  const EVENT_REGISTRATION_OVER = 2;  // applications registration is over
+  const EVENT_PROTOCOL_PUBLISHED = 3;  // applications review protocol publication
+  const EVENT_ARCHIVE = 4;  // procedure archive
 
   /**
-   * Получение текста события
+   * Get the event human description
    * @param int $event
    * @return string
    */
@@ -26,16 +25,16 @@ class Procedure extends Observable
     $text = '';
     switch ($event) {
       case self::EVENT_PUBLICATION:
-        $text = 'публикация закупки';
+        $text = 'trading procedure publication';
         break;
       case self::EVENT_REGISTRATION_OVER:
-        $text = 'окончание приема заявок';
+        $text = 'applications registration is over';
         break;
       case self::EVENT_PROTOCOL_PUBLISHED:
-        $text = 'публикация протокола рассмотрения заявок';
+        $text = 'applications review protocol publication';
         break;
       case self::EVENT_ARCHIVE:
-        $text = 'переход в архив';
+        $text = 'procedure archive';
         break;
     }
     return $text;
@@ -45,7 +44,7 @@ class Procedure extends Observable
   protected $name = '';
 
   /**
-   * Сохранение черновика закупки
+   * Save procedure draft (before it has published)
    * @param string $name
    * @return Procedure
    */
@@ -56,7 +55,7 @@ class Procedure extends Observable
   }
 
   /**
-   * Получение общих для всех ивентов данных
+   * Get common events data
    * @return array
    */
   protected function getCommonEventData()
@@ -67,7 +66,7 @@ class Procedure extends Observable
   }
 
   /**
-   * Публикация закупки
+   * Trading procedure publication
    * @return Procedure
    */
   public function publish()
@@ -79,7 +78,7 @@ class Procedure extends Observable
   }
 
   /**
-   * Окончание приема заявок на участие в закупке
+   * Applications registration is over
    * @return Procedure
    */
   public function registrationOver()
@@ -91,7 +90,7 @@ class Procedure extends Observable
   }
 
   /**
-   * Публикация протокола рассмотрения заявок
+   * Applications review protocol publication
    * @return Procedure
    */
   public function publishProtocol()
@@ -103,7 +102,7 @@ class Procedure extends Observable
   }
 
   /**
-   * Переход закупки в Архив
+   * Procedure archive
    * @return Procedure
    */
   public function archive()

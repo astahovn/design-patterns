@@ -4,27 +4,26 @@ Namespace Observer;
 
 /**
  * Interface Observable
- * Интерфейс наблюдаемого
  */
 interface iObservable
 {
 
   /**
-   * Добавление наблюдателя для событий
+   * Attach observer to a certain object events
    * @param iObserver $observer
    * @param array $events
    */
   public function attach(iObserver $observer, $events);
 
   /**
-   * Удаление наблюдателя для событий
+   * Detach observer from a certain events
    * @param iObserver $observer
    * @param array $events
    */
   public function detach(iObserver $observer, $events);
 
   /**
-   * Отправка сообщений наблюдателям
+   * Notify observers
    * @param int|string $event
    * @param array $data
    */

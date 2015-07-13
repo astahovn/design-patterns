@@ -4,7 +4,6 @@ Namespace Observer;
 
 /**
  * Class Observable
- * Реализация логики Наблюдаемого
  */
 class Observable implements iObservable
 {
@@ -12,7 +11,7 @@ class Observable implements iObservable
   protected $events = [];
 
   /**
-   * Добавление наблюдателя для событий
+   * Attach observer to a certain object events
    * @param iObserver $observer
    * @param array $events
    */
@@ -27,7 +26,7 @@ class Observable implements iObservable
   }
 
   /**
-   * Удаление наблюдателя для событий
+   * Detach observer from a certain events
    * @param iObserver $observer
    * @param array $events
    */
@@ -47,7 +46,7 @@ class Observable implements iObservable
   }
 
   /**
-   * Отправка сообщений наблюдателям
+   * Notify observers
    * @param int|string $event
    * @param array $data
    */
