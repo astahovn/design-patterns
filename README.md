@@ -3,8 +3,8 @@ PHP design patterns practice
 
 I try to apply the knowledge of design patterns in the trading procedures subject area.
  
-What it is?
------------
+A little about the subject
+--------------------------
 
 Trading procedure is a tool to choose a winner between goods suppliers.
 
