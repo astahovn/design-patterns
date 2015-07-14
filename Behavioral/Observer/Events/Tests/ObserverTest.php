@@ -1,10 +1,12 @@
 <?php
 
+Namespace Tests;
+
+use Procedure\Procedure;
+
 require_once __DIR__ . '/../Observer/iObservable.php';
 require_once __DIR__ . '/../Observer/Observable.php';
 require_once __DIR__ . '/../Procedure/Procedure.php';
-
-use Procedure\Procedure;
 
 class ObserverTest extends \PHPUnit_Framework_TestCase
 {
