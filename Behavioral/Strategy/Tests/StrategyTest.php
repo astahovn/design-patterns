@@ -5,11 +5,13 @@ Namespace Tests;
 use Application\Application;
 use Company\Company;
 use Blocker\FreeBlocker;
+use Blocker\BaseBlocker;
 
 require_once __DIR__ . '/../Company/Company.php';
 require_once __DIR__ . '/../Application/Application.php';
 require_once __DIR__ . '/../Blocker/Interface.php';
 require_once __DIR__ . '/../Blocker/Free.php';
+require_once __DIR__ . '/../Blocker/Base.php';
 
 class StrategyTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,10 +29,25 @@ class StrategyTest extends \PHPUnit_Framework_TestCase
   {
     $company = new Company();
     $company->setDeposit(10000);
-    $this->assertEquals(10000, $company->getDeposit(), 'Deposit must be 10000');
 
     $app = new Application($company);
     $app->blockMoney(new FreeBlocker());
+    $this->assertEquals(10000, $company->getDeposit(), 'Deposit must be 10000');
+
+    $app->unblockMoney(new FreeBlocker());
+    $this->assertEquals(10000, $company->getDeposit(), 'Deposit must be 10000');
+  }
+
+  public function testBaseParticipationBlock()
+  {
+    $company = new Company();
+    $company->setDeposit(10000);
+
+    $app = new Application($company);
+    $app->blockMoney(new BaseBlocker());
+    $this->assertEquals(7000, $company->getDeposit(), 'Deposit must be 7000');
+
+    $app->unblockMoney(new BaseBlocker());
     $this->assertEquals(10000, $company->getDeposit(), 'Deposit must be 10000');
   }
 
