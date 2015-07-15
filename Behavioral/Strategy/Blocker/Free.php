@@ -13,11 +13,17 @@ use Procedure\Procedure;
 class FreeBlocker implements BlockerInterface
 {
 
+  /**
+   * @inheritdoc
+   */
   public function block(Company $company, Procedure $procedure)
   {
     // Nothing to do, because it's free participation
   }
 
+  /**
+   * @inheritdoc
+   */
   public function unblock(Company $company, Procedure $procedure)
   {
     // Nothing to do, because it's free participation
