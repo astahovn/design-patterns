@@ -3,6 +3,7 @@
 Namespace Blocker;
 
 use Company\Company;
+use Procedure\Procedure;
 
 /**
  * Class SeriousBlocker
@@ -12,16 +13,21 @@ use Company\Company;
 class SeriousBlocker implements BlockerInterface
 {
 
-  const SERIOUS_FEE = 5000;
+  const SERIOUS_FEE_PERCENT = 10;
 
-  public function block(Company $company)
+  protected function getFee(Procedure $procedure)
   {
-    $company->setDeposit($company->getDeposit() - self::SERIOUS_FEE);
+    return $procedure->getStartPrice()*self::SERIOUS_FEE_PERCENT/100;
   }
 
-  public function unblock(Company $company)
+  public function block(Company $company, Procedure $procedure)
   {
-    $company->setDeposit($company->getDeposit() + self::SERIOUS_FEE);
+    $company->setDeposit($company->getDeposit() - $this->getFee($procedure));
+  }
+
+  public function unblock(Company $company, Procedure $procedure)
+  {
+    $company->setDeposit($company->getDeposit() + $this->getFee($procedure));
   }
 
 }

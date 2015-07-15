@@ -3,6 +3,7 @@
 Namespace Blocker;
 
 use Company\Company;
+use Procedure\Procedure;
 
 /**
  * Class FreeBlocker
@@ -12,12 +13,12 @@ use Company\Company;
 class FreeBlocker implements BlockerInterface
 {
 
-  public function block(Company $company)
+  public function block(Company $company, Procedure $procedure)
   {
     // Nothing to do, because it's free participation
   }
 
-  public function unblock(Company $company)
+  public function unblock(Company $company, Procedure $procedure)
   {
     // Nothing to do, because it's free participation
   }
