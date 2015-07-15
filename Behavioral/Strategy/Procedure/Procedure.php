@@ -1,6 +1,6 @@
 <?php
 
-Namespace Procedure;
+Namespace DesignPatterns\Behavioral\Strategy\Procedure;
 
 /**
  * Class Procedure

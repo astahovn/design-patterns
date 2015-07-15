@@ -1,13 +1,13 @@
 <?php
 
-Namespace Tests;
+Namespace DesignPatterns\Behavioral\Strategy\Tests;
 
-use Application\Application;
-use Company\Company;
-use Procedure\Procedure;
-use Blocker\FreeBlocker;
-use Blocker\BaseBlocker;
-use Blocker\SeriousBlocker;
+use DesignPatterns\Behavioral\Strategy\Application\Application;
+use DesignPatterns\Behavioral\Strategy\Company\Company;
+use DesignPatterns\Behavioral\Strategy\Procedure\Procedure;
+use DesignPatterns\Behavioral\Strategy\Blocker\FreeBlocker;
+use DesignPatterns\Behavioral\Strategy\Blocker\BaseBlocker;
+use DesignPatterns\Behavioral\Strategy\Blocker\SeriousBlocker;
 
 require_once __DIR__ . '/../Company/Company.php';
 require_once __DIR__ . '/../Procedure/Procedure.php';

@@ -1,9 +1,9 @@
 <?php
 
-Namespace Blocker;
+Namespace DesignPatterns\Behavioral\Strategy\Blocker;
 
-use Company\Company;
-use Procedure\Procedure;
+use DesignPatterns\Behavioral\Strategy\Company\Company;
+use DesignPatterns\Behavioral\Strategy\Procedure\Procedure;
 
 /**
  * Class BaseBlocker

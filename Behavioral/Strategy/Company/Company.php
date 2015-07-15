@@ -1,6 +1,6 @@
 <?php
 
-Namespace Company;
+Namespace DesignPatterns\Behavioral\Strategy\Company;
 
 /**
  * Class Company

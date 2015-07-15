@@ -1,10 +1,10 @@
 <?php
 
-Namespace Application;
+Namespace DesignPatterns\Behavioral\Strategy\Application;
 
-use Company\Company;
-use Procedure\Procedure;
-use Blocker\BlockerInterface;
+use DesignPatterns\Behavioral\Strategy\Company\Company;
+use DesignPatterns\Behavioral\Strategy\Procedure\Procedure;
+use DesignPatterns\Behavioral\Strategy\Blocker\BlockerInterface;
 
 /**
  * Class Application
