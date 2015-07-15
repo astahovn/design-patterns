@@ -1,8 +1,8 @@
 <?php
 
-Namespace Procedure;
+Namespace DesignPatterns\Behavioral\Observer\Procedure;
 
-use Observer\Observable;
+use DesignPatterns\Behavioral\Observer\Observer\Observable;
 
 /**
  * Class Procedure

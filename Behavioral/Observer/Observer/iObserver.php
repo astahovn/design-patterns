@@ -1,6 +1,6 @@
 <?php
 
-Namespace Observer;
+Namespace DesignPatterns\Behavioral\Observer\Observer;
 
 /**
  * Interface Observer

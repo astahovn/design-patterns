@@ -1,9 +1,9 @@
 <?php
 
-Namespace Logger;
+Namespace DesignPatterns\Behavioral\Observer\Logger;
 
-use Observer\iObserver;
-use Procedure\Procedure as Proc;
+use DesignPatterns\Behavioral\Observer\Observer\iObserver;
+use DesignPatterns\Behavioral\Observer\Procedure\Procedure as Proc;
 
 class Procedure implements iObserver
 {

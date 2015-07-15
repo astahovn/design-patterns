@@ -1,8 +1,8 @@
 <?php
 
-Namespace Tests;
+Namespace DesignPatterns\Behavioral\Observer\Tests;
 
-use Procedure\Procedure;
+use DesignPatterns\Behavioral\Observer\Procedure\Procedure;
 
 require_once __DIR__ . '/../Observer/iObservable.php';
 require_once __DIR__ . '/../Observer/Observable.php';
@@ -19,7 +19,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   public function testAttach()
   {
     // Generate observer
-    $observer = $this->getMockBuilder('Observer\iObserver')
+    $observer = $this->getMockBuilder('DesignPatterns\Behavioral\Observer\Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
@@ -50,7 +50,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   public function testDetach()
   {
     // Generate first observer
-    $observer1 = $this->getMockBuilder('Observer\iObserver')
+    $observer1 = $this->getMockBuilder('DesignPatterns\Behavioral\Observer\Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
@@ -62,7 +62,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
       );
 
     // Generate second observer
-    $observer2 = $this->getMockBuilder('Observer\iObserver')
+    $observer2 = $this->getMockBuilder('DesignPatterns\Behavioral\Observer\Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
@@ -114,7 +114,7 @@ class ObserverTest extends \PHPUnit_Framework_TestCase
   public function testNotify()
   {
     // Generate observer
-    $observer = $this->getMockBuilder('Observer\iObserver')
+    $observer = $this->getMockBuilder('DesignPatterns\Behavioral\Observer\Observer\iObserver')
       ->setMethods(array('eventsListener'))
       ->getMock();
 
