@@ -12,7 +12,10 @@ Next Notifier must notify all interested users, such as:
 *   participant's responsible users (applicants)
 *   procedure organizer user (procedure's author)
 *   protocol commission members
-*   customer's head of department
+*   ...
 
-So we create a chain of responsible user groups, and give it an event and a procedure.
-Then each user group solves if it needed to notify it's users and if it does then do it.
+So we create a chain of responsible user groups, depends on an event and a procedure.
+And then each user group notifies it's users. 
+
+Chain makes it possible don't send notifications twice to the same email addresses, 
+which contains in different user groups.
