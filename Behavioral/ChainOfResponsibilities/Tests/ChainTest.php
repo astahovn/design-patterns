@@ -2,6 +2,10 @@
 
 Namespace DesignPatterns\Behavioral\ChainOfResponsibilities\Tests;
 
+require_once __DIR__ . '/TestNotifyOrganizerUser.php';
+require_once __DIR__ . '/TestNotifyApplicants.php';
+require_once __DIR__ . '/TestNotifyCommissionMembers.php';
+
 class ChainTest extends \PHPUnit_Framework_TestCase
 {
   const NOTIFY_MESSAGE = 'Test notification message';
@@ -20,30 +24,30 @@ class ChainTest extends \PHPUnit_Framework_TestCase
     $chain->append(new TestNotifyCommissionMembers());
 
     // Send a message to users
-    $sendedEmails = $chain->handle(self::NOTIFY_MESSAGE);
+    $sentEmails = $chain->handle(self::NOTIFY_MESSAGE);
 
-    // Check sended emails and their order
+    // Check sent emails and their order
     $this->assertEquals(
-      TestNotifyCommissionMembers::TEST_SOMEOTHERUSER_MAIL,
-      array_pop($sendedEmails),
+      TestNotifyCommissionMembers::TEST_SOME_OTHER_USER_MAIL,
+      array_pop($sentEmails),
       'Wrong email sent'
     );
 
     $this->assertEquals(
       TestNotifyApplicants::TEST_APPLICANT_MAIL,
-      array_pop($sendedEmails),
+      array_pop($sentEmails),
       'Wrong email sent'
     );
 
     $this->assertEquals(
       TestNotifyOrganizerUser::TEST_ORGANIZER_MAIL,
-      array_pop($sendedEmails),
+      array_pop($sentEmails),
       'Wrong email sent'
     );
 
     $this->assertEquals(
       0,
-      count($sendedEmails),
+      count($sentEmails),
       'Unexpected emails count'
     );
   }
