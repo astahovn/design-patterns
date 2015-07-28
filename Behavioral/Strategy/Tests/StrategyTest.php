@@ -12,10 +12,10 @@ use DesignPatterns\Behavioral\Strategy\Blocker\SeriousBlocker;
 require_once __DIR__ . '/../Company/Company.php';
 require_once __DIR__ . '/../Procedure/Procedure.php';
 require_once __DIR__ . '/../Application/Application.php';
-require_once __DIR__ . '/../Blocker/Interface.php';
-require_once __DIR__ . '/../Blocker/Free.php';
-require_once __DIR__ . '/../Blocker/Base.php';
-require_once __DIR__ . '/../Blocker/Serious.php';
+require_once __DIR__ . '/../Blocker/BlockerInterface.php';
+require_once __DIR__ . '/../Blocker/FreeBlocker.php';
+require_once __DIR__ . '/../Blocker/BaseBlocker.php';
+require_once __DIR__ . '/../Blocker/SeriousBlocker.php';
 
 class StrategyTest extends \PHPUnit_Framework_TestCase
 {

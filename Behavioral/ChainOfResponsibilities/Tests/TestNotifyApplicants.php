@@ -4,7 +4,7 @@ Namespace DesignPatterns\Behavioral\ChainOfResponsibilities\Tests;
 
 use DesignPatterns\Behavioral\ChainOfResponsibilities\Notifier\Notifier;
 
-require_once __DIR__ . '/../Notifier/Abstract.php';
+require_once __DIR__ . '/../Notifier/Notifier.php';
 
 class TestNotifyApplicants extends Notifier
 {
