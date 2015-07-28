@@ -71,7 +71,7 @@ class Procedure extends Observable
    */
   public function publish()
   {
-    print($this->name . " - published\n");
+    // publication code
 
     $this->notify(self::EVENT_PUBLICATION, $this->getCommonEventData());
     return $this;
@@ -83,7 +83,7 @@ class Procedure extends Observable
    */
   public function registrationOver()
   {
-    print($this->name . " - registration is over\n");
+    // registration over code
 
     $this->notify(self::EVENT_REGISTRATION_OVER, $this->getCommonEventData());
     return $this;
@@ -95,7 +95,7 @@ class Procedure extends Observable
    */
   public function publishProtocol()
   {
-    print($this->name . " - published protocol\n");
+    // protocol publication code
 
     $this->notify(self::EVENT_PROTOCOL_PUBLISHED, $this->getCommonEventData());
     return $this;
@@ -107,7 +107,7 @@ class Procedure extends Observable
    */
   public function archive()
   {
-    print($this->name . " - archived\n");
+    // archive code
 
     $this->notify(self::EVENT_ARCHIVE, $this->getCommonEventData());
     return $this;
