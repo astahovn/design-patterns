@@ -4,10 +4,6 @@ Namespace DesignPatterns\Behavioral\Observer\Tests;
 
 use DesignPatterns\Behavioral\Observer\Procedure\Procedure;
 
-require_once __DIR__ . '/../Observer/iObservable.php';
-require_once __DIR__ . '/../Observer/Observable.php';
-require_once __DIR__ . '/../Procedure/Procedure.php';
-
 class ObserverTest extends \PHPUnit_Framework_TestCase
 {
 

@@ -2,10 +2,6 @@
 
 Namespace DesignPatterns\Behavioral\ChainOfResponsibilities\Tests;
 
-require_once __DIR__ . '/TestNotifyOrganizerUser.php';
-require_once __DIR__ . '/TestNotifyApplicants.php';
-require_once __DIR__ . '/TestNotifyCommissionMembers.php';
-
 class ChainTest extends \PHPUnit_Framework_TestCase
 {
   const NOTIFY_MESSAGE = 'Test notification message';
