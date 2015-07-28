@@ -1,5 +1,7 @@
 ## PHP design patterns practice
 
+[![Build Status](https://travis-ci.org/astahovn/design-patterns.svg?branch=master)](https://travis-ci.org/astahovn/design-patterns)
+
 I try to apply the knowledge of design patterns in the trading procedures subject area.
  
 ## A little about the subject
