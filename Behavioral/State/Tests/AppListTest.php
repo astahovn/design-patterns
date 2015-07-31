@@ -41,7 +41,7 @@ class AppListTest extends \PHPUnit_Framework_TestCase
 
     $count = $appList->getCount();
     $this->assertInternalType('int', $count, 'It must be an integer');
-    $this->assertEquals($this->db->doQueryCount(), $count, 'Count is not match');
+    $this->assertEquals($this->db->doQueryCount(), $count, 'Count do not match');
 
     $list = $appList->getList();
     $this->assertInternalType('array', $list, 'It must be an array');
@@ -60,12 +60,12 @@ class AppListTest extends \PHPUnit_Framework_TestCase
 
     $count = $appList->getCount();
     $this->assertInternalType('int', $count, 'It must be an integer');
-    $this->assertEquals($this->db->doQueryCount(), $count, 'Count is not match');
+    $this->assertEquals($this->db->doQueryCount(), $count, 'Count do not match');
 
     $list = $appList->getList();
     $this->assertInternalType('array', $list, 'It must be an array');
     // Let's assume that we are the customer, so there are may be applications
-    $this->assertCount($count, $list, 'Applications count is not match');
+    $this->assertCount($count, $list, 'Applications count do not match');
   }
 
   /**
@@ -80,11 +80,11 @@ class AppListTest extends \PHPUnit_Framework_TestCase
 
     $count = $appList->getCount();
     $this->assertInternalType('int', $count, 'It must be an integer');
-    $this->assertEquals($this->db->doQueryCount(), $count, 'Count is not match');
+    $this->assertEquals($this->db->doQueryCount(), $count, 'Count do not match');
 
     $list = $appList->getList();
     $this->assertInternalType('array', $list, 'It must be an array');
-    $this->assertCount($count, $list, 'Applications count is not match');
+    $this->assertCount($count, $list, 'Applications count do not match');
   }
 
 }
