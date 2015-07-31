@@ -14,7 +14,7 @@ use DesignPatterns\Behavioral\State\Procedure\Procedure;
 class AppListBase
 {
 
-  /** @property Procedure procedure */
+  /** @var Procedure procedure */
   protected $procedure;
 
   public function __construct(Procedure $procedure)
