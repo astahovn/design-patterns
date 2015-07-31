@@ -18,7 +18,7 @@ class AppListArchive extends AppListBase implements AppListInterface
   {
     // Anyone can see the count
     // [ we do DB request and get it ]
-    return 3;
+    return $this->db->doQueryCount();
   }
 
   /**
@@ -28,16 +28,7 @@ class AppListArchive extends AppListBase implements AppListInterface
   {
     // Anyone can see applications
     // [ we do DB request and get it ]
-    return [
-      [
-        'name' => 'The First supplier Inc.',
-        'price' => 100000
-      ],
-      [
-        'name' => 'The Second supplier Inc.',
-        'price' => 105000
-      ]
-    ];
+    return $this->db->doQuery();
   }
 
 }

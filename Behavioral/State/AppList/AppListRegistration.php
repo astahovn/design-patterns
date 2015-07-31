@@ -18,7 +18,7 @@ class AppListRegistration extends AppListBase implements AppListInterface
   {
     // We can see the count
     // [ we do DB request and get it ]
-    return 3;
+    return $this->db->doQueryCount();
   }
 
   /**

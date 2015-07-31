@@ -3,6 +3,8 @@
 Namespace DesignPatterns\Behavioral\State\AppList;
 
 use DesignPatterns\Behavioral\State\Procedure\Procedure;
+use DesignPatterns\Behavioral\State\Db\DbInterface;
+use DesignPatterns\Behavioral\State\Tests\Db;
 
 /**
  * Class AppListBase
@@ -14,11 +16,15 @@ use DesignPatterns\Behavioral\State\Procedure\Procedure;
 class AppListBase
 {
 
+  /** @var DbInterface $db */
+  protected $db;
+
   /** @var Procedure procedure */
   protected $procedure;
 
   public function __construct(Procedure $procedure)
   {
+    $this->db = new Db();
     $this->procedure = $procedure;
   }
 
