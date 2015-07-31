@@ -20,7 +20,7 @@ interface AppListInterface
 
   /**
    * Get published applications list
-   * @return array|false
+   * @return array
    */
   public function getList();
 
