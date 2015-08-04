@@ -2,6 +2,8 @@
 
 Namespace DesignPatterns\Behavioral\Visitor\Procedure;
 
+use DesignPatterns\Behavioral\Visitor\Visitor\VisitorInterface;
+
 class Unit
 {
   /** @var string $name */
@@ -48,6 +50,23 @@ class Unit
   public function getQuantity()
   {
     return $this->quantity;
+  }
+
+  /**
+   * Visit class instance
+   * @param VisitorInterface $visitor
+   */
+  public function accept(VisitorInterface $visitor)
+  {
+    $calledClass = get_called_class();
+    preg_match('/([\w]+)$/', $calledClass, $matches);
+    $visitorMethod = 'visit' . $matches[1];
+
+    if (!method_exists('DesignPatterns\Behavioral\Visitor\Visitor\VisitorInterface', $visitorMethod)) {
+      throw new \InvalidArgumentException('The visitor can not visit ' . $calledClass);
+    }
+
+    call_user_func([$visitor, $visitorMethod], $this);
   }
 
 }
