@@ -2,7 +2,7 @@
 
 Namespace DesignPatterns\Behavioral\Visitor\Procedure;
 
-class UnitService extends Unit
+class Service extends Unit
 {
 
   /** @var int $specialistLevel */

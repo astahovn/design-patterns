@@ -2,7 +2,7 @@
 
 Namespace DesignPatterns\Behavioral\Visitor\Procedure;
 
-class UnitProduct extends Unit
+class Product extends Unit
 {
 
   /** @var string $mark */
