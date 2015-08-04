@@ -2,24 +2,24 @@
 
 Namespace DesignPatterns\Behavioral\Visitor\Visitor;
 
-use DesignPatterns\Behavioral\Visitor\Procedure\UnitProduct;
-use DesignPatterns\Behavioral\Visitor\Procedure\UnitService;
+use DesignPatterns\Behavioral\Visitor\Procedure\Product;
+use DesignPatterns\Behavioral\Visitor\Procedure\Service;
 
 interface VisitorInterface
 {
 
   /**
    * Product unit visitor
-   * @param UnitProduct $product
+   * @param Product $product
    * @return mixed
    */
-  public function visitProduct(UnitProduct $product);
+  public function visitProduct(Product $product);
 
   /**
    * Service unit visitor
-   * @param UnitService $service
+   * @param Service $service
    * @return mixed
    */
-  public function visitService(UnitService $service);
+  public function visitService(Service $service);
 
 }

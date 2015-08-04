@@ -2,8 +2,8 @@
 
 Namespace DesignPatterns\Behavioral\Visitor\Visitor;
 
-use DesignPatterns\Behavioral\Visitor\Procedure\UnitProduct;
-use DesignPatterns\Behavioral\Visitor\Procedure\UnitService;
+use DesignPatterns\Behavioral\Visitor\Procedure\Product;
+use DesignPatterns\Behavioral\Visitor\Procedure\Service;
 
 class VisitorUnitsInfo implements VisitorInterface
 {
@@ -22,7 +22,7 @@ class VisitorUnitsInfo implements VisitorInterface
   /**
    * @inheritdoc
    */
-  public function visitProduct(UnitProduct $product)
+  public function visitProduct(Product $product)
   {
     $this->products[] = sprintf(
       self::TPL_PRODUCT,
@@ -35,9 +35,9 @@ class VisitorUnitsInfo implements VisitorInterface
   /**
    * @inheritdoc
    */
-  public function visitService(UnitService $service)
+  public function visitService(Service $service)
   {
-    $this->products[] = sprintf(
+    $this->services[] = sprintf(
       self::TPL_PRODUCT,
       $service->getName(),
       $this->getSpecialistText($service->getSpecialistLevel()),
