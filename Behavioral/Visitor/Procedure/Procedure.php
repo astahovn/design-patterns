@@ -21,15 +21,19 @@ class Procedure
 
   /**
    * Get units info
-   * @return string
+   * @return array [products[], services[]]
    */
   public function getUnitsInfo()
   {
     $visitor = new VisitorUnitsInfo();
-    foreach($this->units as $unit) {
+    foreach ($this->units as $unit) {
       $unit->accept($visitor);
     }
-    return $visitor->getInfo();
+
+    return [
+      $visitor->getProductsList(),
+      $visitor->getServicesList()
+    ];
   }
 
 }

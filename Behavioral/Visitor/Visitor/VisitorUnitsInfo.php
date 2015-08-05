@@ -63,17 +63,21 @@ class VisitorUnitsInfo implements VisitorInterface
   }
 
   /**
-   * Get final info about products and services
-   * @return string
+   * Get products info list
+   * @return array
    */
-  public function getInfo()
+  public function getProductsList()
   {
-    $result = "Products:\n" .
-      implode("\n", $this->products) . "\n"  .
-      "Services: \n"  .
-      implode("\n", $this->services);
+    return $this->products;
+  }
 
-    return $result;
+  /**
+   * Get services info list
+   * @return array
+   */
+  public function getServicesList()
+  {
+    return $this->services;
   }
 
 }
