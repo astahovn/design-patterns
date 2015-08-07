@@ -9,7 +9,7 @@ Namespace DesignPatterns\Behavioral\State\AppList;
  *
  * @package DesignPatterns\Behavioral\State\AppList
  */
-class AppListArchive extends AppListBase implements AppListInterface
+class AppListArchive extends AppListAbstract
 {
   /**
    * @inheritdoc

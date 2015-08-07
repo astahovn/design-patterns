@@ -13,7 +13,7 @@ use DesignPatterns\Behavioral\State\Tests\Db;
  *
  * @package DesignPatterns\Behavioral\State\AppList
  */
-class AppListBase
+abstract class AppListAbstract implements AppListInterface
 {
 
   /** @var DbInterface $db */
@@ -21,6 +21,18 @@ class AppListBase
 
   /** @var Procedure procedure */
   protected $procedure;
+
+  /**
+   * Get published applications count
+   * @return int
+   */
+  abstract public function getCount();
+
+  /**
+   * Get published applications list
+   * @return array
+   */
+  abstract public function getList();
 
   public function __construct(Procedure $procedure)
   {
