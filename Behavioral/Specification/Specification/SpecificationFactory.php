@@ -5,6 +5,8 @@ Namespace DesignPatterns\Behavioral\Specification\Specification;
 class SpecificationFactory
 {
 
+  const ERROR_INVALID_VALIDATOR = 'Invalid validator\'s name specified';
+
   /**
    * Closed access to the constructor
    */
@@ -21,7 +23,7 @@ class SpecificationFactory
   {
     $className = __NAMESPACE__ . '\\' . $name . 'Specification';
     if (!class_exists($className)) {
-      throw new \Exception('Invalid validator\'s name specified');
+      throw new \Exception(self::ERROR_INVALID_VALIDATOR);
     }
 
     /** @var AbstractSpecification $spec */
