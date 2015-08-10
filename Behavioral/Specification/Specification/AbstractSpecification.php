@@ -6,13 +6,6 @@ abstract class AbstractSpecification implements SpecificationInterface
 {
 
   /**
-   * Check if specification satisfied by given value
-   * @param mixed $value
-   * @return bool
-   */
-  abstract public function isSatisfiedBy($value);
-
-  /**
    * Logical AND specification
    * @param SpecificationInterface $spec
    * @return SpecificationInterface
