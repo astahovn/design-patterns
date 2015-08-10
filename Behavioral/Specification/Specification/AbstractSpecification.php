@@ -15,4 +15,13 @@ abstract class AbstractSpecification implements SpecificationInterface
     return new Plus($this, $spec);
   }
 
+  /**
+   * Setting up specification's params
+   * @param array $params
+   */
+  public function setParams($params)
+  {
+    // Should be redefined, if needed
+  }
+
 }
