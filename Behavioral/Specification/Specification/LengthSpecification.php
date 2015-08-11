@@ -16,6 +16,10 @@ class LengthSpecification extends AbstractSpecification
    */
   public function isSatisfiedBy($value)
   {
+    if ($this->isEmpty($value)) {
+      // if value is empty, don't validate it
+      return true;
+    }
     if (!is_string($value)) {
       return false;
     }

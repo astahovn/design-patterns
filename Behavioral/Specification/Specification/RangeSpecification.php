@@ -16,6 +16,10 @@ class RangeSpecification extends AbstractSpecification
    */
   public function isSatisfiedBy($value)
   {
+    if ($this->isEmpty($value)) {
+      // if value is empty, don't validate it
+      return true;
+    }
     if (!is_numeric($value)) {
       return false;
     }

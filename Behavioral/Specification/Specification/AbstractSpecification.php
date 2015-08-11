@@ -24,4 +24,14 @@ abstract class AbstractSpecification implements SpecificationInterface
     // Should be redefined, if needed
   }
 
+  /**
+   * Check if value is empty
+   * @param mixed $value
+   * @return bool
+   */
+  protected function isEmpty($value)
+  {
+    return ('' === $value) || (is_null($value));
+  }
+
 }

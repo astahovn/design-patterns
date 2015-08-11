@@ -18,7 +18,7 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
   {
     /** @var LengthSpecification $field */
     $field = SpecificationFactory::getSpecification('Length', ['min' => 4]);
-    $this->assertFalse($field->isSatisfiedBy(''));
+    $this->assertTrue($field->isSatisfiedBy(''));
     $this->assertFalse($field->isSatisfiedBy('One'));
     $this->assertTrue($field->isSatisfiedBy('Test'));
     $this->assertTrue($field->isSatisfiedBy('Some text.'));
@@ -30,7 +30,7 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
     $this->assertFalse($field->isSatisfiedBy('Some text.'));
 
     $field->setParams(['min' => 3, 'max' => 5]);
-    $this->assertFalse($field->isSatisfiedBy(''));
+    $this->assertTrue($field->isSatisfiedBy(''));
     $this->assertFalse($field->isSatisfiedBy('Bz'));
     $this->assertTrue($field->isSatisfiedBy('Test'));
     $this->assertFalse($field->isSatisfiedBy('Some text.'));
@@ -72,7 +72,7 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
   public function rangeProvider()
   {
     return [
-      [false, null],
+      [true, null],
       [false, 0],
       [false, 1],
       [true, 3],

@@ -12,7 +12,7 @@ class RequiredSpecification extends AbstractSpecification
    */
   public function isSatisfiedBy($value)
   {
-    return !is_null($value) && ('' !== $value);
+    return !$this->isEmpty($value);
   }
 
 }
