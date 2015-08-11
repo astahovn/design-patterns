@@ -10,7 +10,9 @@ class SpecificationFactory
   /**
    * Closed access to the constructor
    */
-  private function __construct() {}
+  private function __construct()
+  {
+  }
 
   /**
    * Gets needed specification
