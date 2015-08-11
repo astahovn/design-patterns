@@ -36,4 +36,49 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
     $this->assertFalse($field->isSatisfiedBy('Some text.'));
   }
 
+  /**
+   * @param bool $expected
+   * @param mixed $value
+   * @dataProvider requiredProvider
+   */
+  public function testRequiredValidator($expected, $value)
+  {
+    $field = SpecificationFactory::getSpecification('Required');
+    $this->assertEquals($expected, $field->isSatisfiedBy($value));
+  }
+
+  public function requiredProvider()
+  {
+    return [
+      [false, null],
+      [false, ''],
+      [true, 0],
+      [true, 'Some value'],
+      [true, 123],
+    ];
+  }
+
+  /**
+   * @param bool $expected
+   * @param mixed $value
+   * @dataProvider rangeProvider
+   */
+  public function testRangeValidator($expected, $value)
+  {
+    $field = SpecificationFactory::getSpecification('Range', ['min' => 2, 'max' => 5]);
+    $this->assertEquals($expected, $field->isSatisfiedBy($value));
+  }
+
+  public function rangeProvider()
+  {
+    return [
+      [false, null],
+      [false, 0],
+      [false, 1],
+      [true, 3],
+      [true, 5],
+      [false, 8],
+    ];
+  }
+
 }
