@@ -2,8 +2,9 @@
 
 Namespace DesignPatterns\Behavioral\Specification\Tests;
 
-use DesignPatterns\Behavioral\Specification\Specification\LengthSpecification;
+use DesignPatterns\Behavioral\Specification\Specification\AbstractSpecification;
 use DesignPatterns\Behavioral\Specification\Specification\SpecificationFactory;
+use DesignPatterns\Behavioral\Specification\Procedure\Procedure;
 
 class SpecificationTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,7 +17,7 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
 
   public function testLengthValidator()
   {
-    /** @var LengthSpecification $field */
+    /** @var AbstractSpecification $field */
     $field = SpecificationFactory::getSpecification('Length', ['min' => 4]);
     $this->assertTrue($field->isSatisfiedBy(''));
     $this->assertFalse($field->isSatisfiedBy('One'));
@@ -78,6 +79,40 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase
       [true, 3],
       [true, 5],
       [false, 8],
+    ];
+  }
+
+  /**
+   * @param array $expected
+   * @param array $data
+   * @dataProvider procedureProvider
+   */
+  public function testProcedureValidation($expected, $data)
+  {
+    $procedure = new Procedure();
+    $procedure->setData($data);
+    $this->assertEquals($expected, $procedure->validate());
+  }
+
+  public function procedureProvider()
+  {
+    return [
+      [
+        ['success' => false, 'errors' => ['name', 'start_price']],
+        ['name' => '', 'start_price' => null, 'description' => null]
+      ],
+      [
+        ['success' => false, 'errors' => ['name', 'start_price', 'description']],
+        ['name' => 'Test', 'start_price' => 0, 'description' => 'test']
+      ],
+      [
+        ['success' => false, 'errors' => ['name', 'start_price']],
+        ['name' => 'My Test procedure.........', 'start_price' => 100001, 'description' => 'Some test description']
+      ],
+      [
+        ['success' => true],
+        ['name' => 'My Test procedure', 'start_price' => 10, 'description' => 'Some test description']
+      ]
     ];
   }
 
