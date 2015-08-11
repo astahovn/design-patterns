@@ -23,13 +23,13 @@ class LengthSpecification extends AbstractSpecification
     if (!is_string($value)) {
       return false;
     }
-    $strlen = strlen($value);
+    $strLen = strlen($value);
     $result = true;
     if (isset($this->min)) {
-      $result = $strlen >= $this->min;
+      $result = $strLen >= $this->min;
     }
     if ($result && isset($this->max)) {
-      $result = $strlen <= $this->max;
+      $result = $strLen <= $this->max;
     }
     return $result;
   }
