@@ -49,7 +49,7 @@ class RendererTest extends \PHPUnit_Framework_TestCase
     $procedure = new RendererSignText($this->procedure);
 
     $signText = $procedure->renderData();
-    $this->assertInternalType('string', $signText, 'Expected sing text');
+    $this->assertInternalType('string', $signText, 'Expected sign text');
 
     $this->assertRegExp('/(' . self::PROCEDURE_NAME . ')+/i', $signText, 'Sign text must contain procedure name');
     $this->assertRegExp('/(' . self::PROCEDURE_START_PRICE . ')+/i', $signText, 'Sign text must contain start price');
