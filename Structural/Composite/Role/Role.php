@@ -38,7 +38,8 @@ class Role
         $parentApi = array_merge($parentApi, $parentRole->getApi());
       }
     }
-    return array_merge($this->api, $parentApi);
+    $fullApi = array_merge($this->api, $parentApi);
+    return array_unique($fullApi);
   }
 
 }
