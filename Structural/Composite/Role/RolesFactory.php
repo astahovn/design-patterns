@@ -43,11 +43,11 @@ class RolesFactory
   /**
    * Get role API
    * @param string $roleName
-   * @return Role
+   * @return array|null
    */
   public function getApi($roleName)
   {
-    return $this->roles[$roleName]->getApi();
+    return isset($this->roles[$roleName]) ? $this->roles[$roleName]->getApi() : null;
   }
 
 }

@@ -6,10 +6,12 @@ use DesignPatterns\Structural\Composite\Role\RolesFactory;
 
 class RoleTest extends \PHPUnit_Framework_TestCase
 {
+  /** @var array $rolesConfig */
+  protected $rolesConfig = [];
 
-  public function testRole()
+  public function setUp()
   {
-    $rolesConfig = [
+    $this->rolesConfig = [
       'user' => [
         'api' => ['logout'],
         'parents' => []
@@ -31,15 +33,32 @@ class RoleTest extends \PHPUnit_Framework_TestCase
         'parents' => ['admin']
       ],
     ];
+  }
 
+  /**
+   * Test roles initialization and getting APIs
+   */
+  public function testRole()
+  {
     $rolesFactory = new RolesFactory();
-    $rolesFactory->initRoles($rolesConfig);
+    $rolesFactory->initRoles($this->rolesConfig);
 
     $this->assertCount(1, $rolesFactory->getApi('user'));
     $this->assertCount(3, $rolesFactory->getApi('admin'));
     $this->assertCount(5, $rolesFactory->getApi('systemAdmin'));
     $this->assertCount(6, $rolesFactory->getApi('businessAdmin'));
     $this->assertCount(4, $rolesFactory->getApi('financeAdmin'));
+  }
+
+  /**
+   * Test getting wrong role API
+   */
+  public function testWrongRole()
+  {
+    $rolesFactory = new RolesFactory();
+    $rolesFactory->initRoles($this->rolesConfig);
+
+    $this->assertNull($rolesFactory->getApi('wrongRole'));
   }
 
 }
