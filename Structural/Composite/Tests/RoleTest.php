@@ -61,4 +61,17 @@ class RoleTest extends \PHPUnit_Framework_TestCase
     $this->assertNull($rolesFactory->getApi('wrongRole'));
   }
 
+  /**
+   * Test wrong config: setup non-existent parent
+   */
+  public function testNonExistentParent()
+  {
+    $this->rolesConfig['financeAdmin']['parents'] = ['adminBar'];
+
+    $this->setExpectedException('Exception', RolesFactory::ERROR_NONEXISTENT_PARENT);
+
+    $rolesFactory = new RolesFactory();
+    $rolesFactory->initRoles($this->rolesConfig);
+  }
+
 }
